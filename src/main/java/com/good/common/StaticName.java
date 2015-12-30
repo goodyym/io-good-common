@@ -4,7 +4,14 @@ package com.good.common;
  * Created by Administrator
  * Date:2015/12/30
  */
-public class StaticName {
+public interface StaticName {
 
-    private static final String TABLE_NAME = "tableName";
+     public static final String MAPPER_TABLE_NAME = "tableName";
+
+     public static final String MAPPER_ID = "id";
+
+     public static final String MAPPER_PARAMS = "params";
+
+     public static final String MAPPER_LIST = "list";
+
 }

@@ -12,7 +12,7 @@ public class User extends ExIdentity implements Serializable {
 
     private static final long serialVersionUID = -8507359470837800971L;
 
-    private static String tableName = "tb_user";
+    public static String tableName = "tb_user";
 
     private String username;
 
