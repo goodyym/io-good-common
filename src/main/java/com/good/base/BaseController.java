@@ -1,6 +1,5 @@
-package com.good.controller;
+package com.good.base;
 
-import org.springframework.stereotype.Controller;
 
 /**
  * BaseController
@@ -10,6 +9,5 @@ import org.springframework.stereotype.Controller;
  * @Time:1
  */
 
-@Controller
 public class BaseController {
 }

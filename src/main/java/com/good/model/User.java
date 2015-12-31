@@ -1,6 +1,8 @@
 package com.good.model;
 
 import com.good.common.ExIdentity;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import java.io.Serializable;
 
@@ -35,4 +37,16 @@ public class User extends ExIdentity implements Serializable {
     }
 
     //怎么样重写hashcode和tostring的
+    //http://www.cnblogs.com/lovingprince/archive/2007/04/02/2166450.html
+    //http://blog.csdn.net/lishehe/article/details/45224181
+    //http://blog.csdn.net/zhuojiajin/article/category/2861049
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.reflectionToString(this);
+    }
+
+    @Override
+    public int hashCode() {
+        return HashCodeBuilder.reflectionHashCode(this);
+    }
 }

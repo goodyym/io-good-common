@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<!-- 过滤不需要有struts拦截的资源 -->
+	<constant name="struts.action.excludePattern" value=".*/web/js.*,.*/web/css.*,.*/web/images.*,.*/cxf.*,.*/remote/*.*" />
+	<!-- 取消转发action时显示.action后缀
+	<constant name="struts.action.extension" value="html"/>  -->
+	<!-- 所有的对象交给spring产生 -->
+	<constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+	<constant name="struts.multipart.maxSize" value="104857600"></constant>  
+	<include file="struts-manage.xml"></include>
+	<package name="default" extends="struts-default">
+		<interceptors>
+			
+			<!-- <interceptor name="remeberMeInterceptor" class="com.iotek.coding.web.interceptor.RemeberMeInterceptor"></interceptor> -->
+			<interceptor-stack name="myDefaultInterceptorStack">
+				<!-- Shiro remeberMe 处理 -->
+				<!-- <interceptor-ref name="remeberMeInterceptor"></interceptor-ref> -->
+				<!-- Shiro 单一登录 处理 -->
+							<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>  
+                    <param name="exception.logLevel">error</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors> 
+		<default-interceptor-ref name="myDefaultInterceptorStack"></default-interceptor-ref> 
+	
+		<!-- 请求页面找不到时处理 -->
+		<default-action-ref name="pageNotFund"></default-action-ref> 
+
+		<global-results>
+				<result name="error">/error/500</result>
+				<result name="logout" type="redirect">/user/logout</result>
+		</global-results>
+		
+		<global-exception-mappings> 
+			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>
+		
+		<action name="pageNotFund"> 
+		   <result>/error/404</result> 
+		</action> 
+	</package>
+	
+	<package name="default-json" extends="json-default">
+		<interceptors>
+			<!-- <interceptor name="remeberMeInterceptor" class="com.iotek.coding.web.interceptor.RemeberMeInterceptor"></interceptor> -->
+			<interceptor-stack name="myDefaultInterceptorStack">
+				<!-- Shiro remeberMe 处理 -->
+				<!-- <interceptor-ref name="remeberMeInterceptor"></interceptor-ref> -->
+				<!-- Shiro 单一登录 处理 -->
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>  
+                    <param name="exception.logLevel">error</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors> 
+		<default-interceptor-ref name="myDefaultInterceptorStack"></default-interceptor-ref> 
+	
+		<!-- 请求页面找不到时处理 -->
+		<default-action-ref name="pageNotFund"></default-action-ref> 
+
+		<global-results>
+				<result name="error">/web/pages/common/error.jsp</result>
+				<result name="logout" type="redirect">/user/logout</result>
+		</global-results>
+		
+		<global-exception-mappings> 
+			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>
+		
+		<action name="pageNotFund"> 
+		   <result>/error/404</result> 
+		</action> 
+	</package>
+	
+</struts>
+		
+
+
+
+

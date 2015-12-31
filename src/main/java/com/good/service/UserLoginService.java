@@ -7,7 +7,7 @@ import com.good.model.User;
  * Author: tretert
  * Time:${TTME}
  */
-public interface LoginService1 {
+public interface UserLoginService {
 
      User getUserByName(String username);
 }
