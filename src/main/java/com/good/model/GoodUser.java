@@ -10,11 +10,11 @@ import java.io.Serializable;
  * Created by Administrator
  * Date:2015/12/29
  */
-public class User extends ExIdentity implements Serializable {
+public class GoodUser extends ExIdentity implements Serializable {
 
     private static final long serialVersionUID = -8507359470837800971L;
 
-    public static String tableName = "tb_user";
+    public static String tableName = "tb_good_user";
 
     private String username;
 
@@ -36,7 +36,7 @@ public class User extends ExIdentity implements Serializable {
         this.password = password;
     }
 
-    //ÔõÃ´ÑùÖØÐ´hashcodeºÍtostringµÄ
+    //ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½Ð´hashcodeï¿½ï¿½tostringï¿½ï¿½
     //http://www.cnblogs.com/lovingprince/archive/2007/04/02/2166450.html
     //http://blog.csdn.net/lishehe/article/details/45224181
     //http://blog.csdn.net/zhuojiajin/article/category/2861049

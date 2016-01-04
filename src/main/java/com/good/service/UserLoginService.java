@@ -1,6 +1,6 @@
 package com.good.service;
 
-import com.good.model.User;
+import com.good.model.GoodUser;
 
 /**
  * Description: uuuuuuuuuuuuuuuuu
@@ -9,5 +9,5 @@ import com.good.model.User;
  */
 public interface UserLoginService {
 
-     User getUserByName(String username);
+     GoodUser getUserByName(String username);
 }

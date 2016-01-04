@@ -1,6 +1,8 @@
 package com.good.base;
 
 
+import java.util.ArrayList;
+
 /**
  * BaseController
  *
@@ -10,4 +12,5 @@ package com.good.base;
  */
 
 public class BaseController {
+
 }
