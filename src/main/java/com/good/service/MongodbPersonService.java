@@ -5,5 +5,4 @@ package com.good.service;
  * Date:2016/1/25
  */
 public interface MongodbPersonService {
-    save(Query)
 }
