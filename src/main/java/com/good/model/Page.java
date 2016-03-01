@@ -44,11 +44,7 @@ public class Page<T> implements Serializable{
     //获取最大的页数
     public int getMaxPage(){
 
-        int maxPage = dataCount/pageSize;
-
-        if(maxPage == 0){
-            maxPage = 1;
-        }
+        int maxPage = dataCount/pageSize + 1;
 
         return maxPage;
     }
